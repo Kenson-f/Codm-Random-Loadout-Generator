@@ -2,7 +2,7 @@ Call of Duty: Mobile - Random Loadout Generator
 
 A full-stack web application that generates random weapon and perk loadouts for the game Call of Duty: Mobile. This project demonstrates a complete front-to-back development cycle, from user interface design to real-time database management and cloud deployment.
 
-Live Demo URL: https://codm-random-loadout-generator.web.app (Replace with your actual Firebase Hosting URL)
+Live Demo URL: https://codm-random-loadout-generator.web.app
 Features
 
     Random Loadout Generation: Creates a complete loadout including a primary weapon, secondary weapon, five attachments for each, three character perks, and lethal/tactical equipment.
