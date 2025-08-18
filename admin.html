@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Loadout Data</title>
+    <link rel="stylesheet" href="admin.style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Admin Panel</h1>
+            <a href="index.html" class="home-link">Back to Generator</a>
+        </header>
+
+        <main>
+            <div class="tabs">
+                <button class="tab-link active" onclick="openTab(event, 'Weapons')">Manage Weapons</button>
+                <button class="tab-link" onclick="openTab(event, 'Other')">Manage Perks & Equipment</button>
+            </div>
+
+            <!-- WEAPONS MANAGEMENT TAB -->
+            <div id="Weapons" class="tab-content" style="display: block;">
+                <div class="management-section">
+                    <h2 id="weapon-form-title">Add New Weapon</h2>
+                    <form id="add-weapon-form">
+                        <div class="form-grid">
+                            <select id="weapon-category-select" required>
+                                <option value="primary_weapons">Primary Weapon</option>
+                                <option value="secondary_weapons">Secondary Weapon</option>
+                            </select>
+                            <input type="text" id="weapon-name" placeholder="New Weapon Name" required>
+                        </div>
+                        <div class="template-selector">
+                            <label for="template-weapon-select">Copy Attachments from...</label>
+                            <select id="template-weapon-select">
+                                <option value="">-- Select a Template Weapon --</option>
+                                <!-- Options will be populated by script -->
+                            </select>
+                        </div>
+                        <h3>Attachments</h3>
+                        <!-- MODIFICATION: Each textarea is now paired with a copy button -->
+                        <div id="attachment-fields-container" class="form-grid attachments-grid">
+                            <div class="attachment-field"><textarea id="attach-optic" placeholder="Optics..."></textarea><button type="button" class="copy-btn" data-type="optic">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-muzzle" placeholder="Muzzles..."></textarea><button type="button" class="copy-btn" data-type="muzzle">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-barrel" placeholder="Barrels..."></textarea><button type="button" class="copy-btn" data-type="barrel">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-laser" placeholder="Lasers..."></textarea><button type="button" class="copy-btn" data-type="laser">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-underbarrel" placeholder="Underbarrels..."></textarea><button type="button" class="copy-btn" data-type="underbarrel">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-ammunition" placeholder="Ammunition..."></textarea><button type="button" class="copy-btn" data-type="ammunition">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-rear_grip" placeholder="Rear Grips..."></textarea><button type="button" class="copy-btn" data-type="rear_grip">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-stock" placeholder="Stocks..."></textarea><button type="button" class="copy-btn" data-type="stock">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-weapon_perk" placeholder="Weapon Perks..."></textarea><button type="button" class="copy-btn" data-type="weapon_perk">Copy</button></div>
+                            <div class="attachment-field"><textarea id="attach-trigger_action" placeholder="Trigger Actions..."></textarea><button type="button" class="copy-btn" data-type="trigger_action">Copy</button></div>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" id="weapon-submit-btn">Add Weapon</button>
+                            <button type="button" id="cancel-edit-btn" class="hidden">Cancel Edit</button>
+                        </div>
+                    </form>
+                </div>
+                 <div class="data-view-section">
+                    <h2>Existing Weapons</h2>
+                    <div class="category-buttons">
+                        <button id="view-primary-btn" class="category-btn active">View Primary</button>
+                        <button id="view-secondary-btn" class="category-btn">View Secondary</button>
+                    </div>
+                    <div id="weapon-list-container"></div>
+                </div>
+            </div>
+
+            <!-- OTHER ITEMS MANAGEMENT TAB -->
+            <div id="Other" class="tab-content">
+                 <div class="management-section">
+                    <h2>Add New Perk / Equipment</h2>
+                    <form id="add-item-form">
+                        <select id="category-select" required>
+                            <option value="" disabled selected>Select Category</option>
+                            <option value="perks_red">Red Perk</option>
+                            <option value="perks_green">Green Perk</option>
+                            <option value="perks_blue">Blue Perk</option>
+                            <option value="lethal_throwables">Lethal</option>
+                            <option value="tactical_throwables">Tactical</option>
+                        </select>
+                        <input type="text" id="item-name" placeholder="New Item Name" required>
+                        <button type="submit">Add Item</button>
+                    </form>
+                </div>
+                <div class="data-view-section">
+                     <h2>Existing Items</h2>
+                     <div class="category-buttons" id="other-category-buttons"></div>
+                     <h3 id="current-category-title">Select a category to view items</h3>
+                     <div id="item-table-container"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyDm8Hjxh4J0WhgHSzRORWaXfhg0qnlvEno",
+            authDomain: "codm-random-loadout-generator.firebaseapp.com",
+            projectId: "codm-random-loadout-generator",
+            storageBucket: "codm-random-loadout-generator.appspot.com",
+            messagingSenderId: "591975200132",
+            appId: "1:591975200132:web:98cf9523205db1bb3799d1",
+            measurementId: "G-VQ7WR4G497"
+        };
+        const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="admin.script.js" type="module"></script>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+
+</body>
+</html>

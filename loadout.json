@@ -1,0 +1,77 @@
+{
+  "primary_weapons": [
+    {
+      "name": "M4",
+      "attachments": {
+        "optic": ["Red Dot Sight 1", "Holographic Sight 2", "3X Tactical Scope 1"],
+        "muzzle": ["Monolithic Suppressor", "OWC Light Compensator", "Tactical Suppressor"],
+        "barrel": ["MIP Stock M12", "OWC Marksman", "YKM Integral Suppressor"],
+        "laser": ["OWC Laser - Tactical", "MIP Laser 5mW"],
+        "underbarrel": ["Strike Foregrip", "Operator Foregrip", "Ranger Foregrip"],
+        "ammunition": ["50 Round Extended Mag", "40 Round Extended Mag"],
+        "rear_grip": ["Stippled Grip Tape", "Granulated Grip Tape"],
+        "stock": ["No Stock", "MIP Strike Stock", "YKM Combat Stock"]
+      }
+    },
+    {
+      "name": "AK-47",
+      "attachments": {
+        "optic": ["Red Dot Sight 3", "Classic Red Dot Sight"],
+        "muzzle": ["Monolithic Suppressor", "Muzzle Brake"],
+        "barrel": ["MIP Extended Light Barrel", "OWC Ranger"],
+        "laser": ["OWC Laser - Tactical"],
+        "underbarrel": ["Strike Foregrip", "Merc Foregrip"],
+        "ammunition": ["5.45 Caliber Ammo", "Large Extended Mag B"],
+        "rear_grip": ["Granulated Grip Tape", "Rubberized Grip Tape"],
+        "stock": ["No Stock", "MIP Strike Stock", "Skeleton Stock"]
+      }
+    }
+  ],
+  "secondary_weapons": [
+    {
+      "name": "J358",
+      "attachments": {
+        "muzzle": ["Monolithic Suppressor", "Muzzle Brake"],
+        "barrel": ["J358 Long", "MIP Extended Light Barrel"],
+        "laser": ["OWC Laser - Tactical", "MIP Laser 5mW"],
+        "ammunition": ["Stopping Power Reload"],
+        "rear_grip": ["Stippled Grip Tape", "Rubberized Grip Tape"]
+      }
+    }
+  ],
+  "perks_red": [
+    "Fast Recover",
+    "Persistence",
+    "Lightweight",
+    "Agile",
+    "Flak Jacket"
+  ],
+  "perks_green": [
+    "Vulture",
+    "Toughness",
+    "Cold-Blooded",
+    "Ghost",
+    "Hard Wired"
+  ],
+  "perks_blue": [
+    "Hardline",
+    "Dead Silence",
+    "Shrapnel",
+    "High Alert",
+    "Tactical Mask"
+  ],
+  "lethal_throwables": [
+    "Frag Grenade",
+    "Sticky Grenade",
+    "Trip Mine",
+    "Thermite",
+    "Molotov Cocktail"
+  ],
+  "tactical_throwables": [
+    "Smoke Grenade",
+    "Flashbang Grenade",
+    "Concussion Grenade",
+    "EMP",
+    "Trophy System"
+  ]
+}

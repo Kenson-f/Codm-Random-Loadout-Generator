@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoD: Mobile Random Loadout</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Call of Duty: Mobile</h1>
+            <h2>Random Loadout Generator</h2>
+        </header>
+
+        <main>
+            <button id="generate-btn">Generate Loadout</button>
+
+            <div id="loadout-display" class="loadout-grid">
+                <!-- Row 1: Weapons -->
+                <div class="loadout-card primary">
+                    <h3>Primary Weapon</h3>
+                    <p id="primary-weapon">?</p>
+                    <ul id="primary-attachments"></ul>
+                </div>
+                <div class="loadout-card secondary">
+                    <h3>Secondary Weapon</h3>
+                    <p id="secondary-weapon">?</p>
+                    <ul id="secondary-attachments"></ul>
+                </div>
+
+                <!-- Row 2: Perks -->
+                <div class="loadout-card perk-red">
+                    <h3>Red Perk</h3>
+                    <p id="perk-red">?</p>
+                </div>
+                 <div class="loadout-card perk-green">
+                    <h3>Green Perk</h3>
+                    <p id="perk-green">?</p>
+                </div>
+                 <div class="loadout-card perk-blue">
+                    <h3>Blue Perk</h3>
+                    <p id="perk-blue">?</p>
+                </div>
+
+                <!-- Row 3: Equipment -->
+                <div class="loadout-card lethal">
+                    <h3>Lethal</h3>
+                    <p id="lethal">?</p>
+                </div>
+                <div class="loadout-card tactical">
+                    <h3>Tactical</h3>
+                    <p id="tactical">?</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyDm8Hjxh4J0WhgHSzRORWaXfhg0qnlvEno",
+            authDomain: "codm-random-loadout-generator.firebaseapp.com",
+            projectId: "codm-random-loadout-generator",
+            storageBucket: "codm-random-loadout-generator.appspot.com",
+            messagingSenderId: "591975200132",
+            appId: "1:591975200132:web:98cf9523205db1bb3799d1",
+            measurementId: "G-VQ7WR4G497"
+        };
+        const app = initializeApp(firebaseConfig);
+    </script>
+    <script src="script.js" type="module"></script>
+
+</body>
+</html>
