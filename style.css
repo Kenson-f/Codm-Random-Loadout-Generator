@@ -1,4 +1,5 @@
 /* style.css */
+
 body {
     font-family: 'Teko', sans-serif;
     background-color: #141414;
@@ -20,7 +21,6 @@ body {
     width: 100%;
     max-width: 900px;
     text-align: center;
-    opacity: 0.9;
 }
 
 header h1 {
@@ -37,14 +37,18 @@ header h2 {
     font-weight: 400;
 }
 
+/* --- MODIFICATION START --- */
 .loadout-grid {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(6, 1fr);
+    opacity: 0.85;
     grid-template-areas:
         "primary primary primary secondary secondary secondary"
         "perk-r  perk-r  perk-g  perk-g    perk-b    perk-b"
-        "lethal  lethal  lethal  tactical  tactical  tactical";
+        "lethal  lethal  lethal  tactical  tactical  tactical"
+        "ss1     ss1     ss2     ss2       ss3       ss3"
+        "op-skill op-skill op-skill op-skill op-skill op-skill";
 }
 
 .primary { grid-area: primary; }
@@ -54,21 +58,31 @@ header h2 {
 .perk-blue { grid-area: perk-b; }
 .lethal { grid-area: lethal; }
 .tactical { grid-area: tactical; }
+.scorestreak-1 { grid-area: ss1; }
+.scorestreak-2 { grid-area: ss2; }
+.scorestreak-3 { grid-area: ss3; }
+/* Assigning operator skill to its grid area */
+.operator-skill { grid-area: op-skill; }
 
 @media (max-width: 768px) {
     .loadout-grid {
         grid-template-columns: 1fr 1fr;
+        /* Updated mobile layout */
         grid-template-areas:
             "primary   primary"
             "secondary secondary"
             "perk-r    perk-g"
             "perk-b    perk-b"
-            "lethal    tactical";
+            "lethal    tactical"
+            "ss1       ss2"
+            "ss3       ss3"
+            "op-skill  op-skill";
     }
-    .perk-blue {
-        grid-column: 1 / -1;
+    .perk-blue, .scorestreak-3, .operator-skill {
+        grid-column: 1 / -1; /* Span full width for even layout */
     }
 }
+/* --- MODIFICATION END --- */
 
 .loadout-card {
     background-color: #222;
@@ -127,7 +141,6 @@ header h2 {
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
     box-shadow: 0 0 20px rgba(255, 196, 0, 0.5);
-    /* MODIFICATION: Added margin to the bottom for spacing */
     margin-bottom: 30px;
 }
 
@@ -135,5 +148,3 @@ header h2 {
     background-color: #ffd540;
     box-shadow: 0 0 30px rgba(255, 213, 64, 0.8);
 }
-
-
