@@ -92,6 +92,19 @@ h3 {
     flex-direction: column;
     gap: 15px;
 }
+#add-item-form .submit {
+    background-color: #ffc400;
+    color: #141414;
+    padding: 10px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Teko', sans-serif;
+    width: 200px;
+}
 
 .form-grid {
     display: grid;
@@ -171,8 +184,8 @@ textarea {
 }
 
 .copy-btn {
-    background-color: #3498db;
-    color: white;
+    background-color: #ffc400;
+    color: #141414;
     border: none;
     padding: 5px 10px;
     font-size: 0.9rem;
